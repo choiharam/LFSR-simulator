@@ -4,8 +4,8 @@
 #include <string>
 #include <typeinfo>
 #include <vector>
-// #include <chrono>
-// #include <thread>
+#include <chrono>
+#include <thread>
 
 using namespace std;
 using namespace std::this_thread;
@@ -48,16 +48,14 @@ int main(){
     uint64_t period = 0;
     seed = step(seed, taps);
     while((seed!=initial)&&(seed!=all_zero)&&(seed!=all_one)){
-        // cout << "seed: " << bitset<32>(seed) << '\n';
-        seed = step(seed, taps);
-
-        // cout << "ciph: " << ciphers << '\n';
-        // cout << "next: " << bitset<32>(seed) << '\n' << '\n';
-        period += 1;
         cout << period << '\n';
+        cout << "seed: " << bitset<32>(seed) << '\n';
+        seed = step(seed, taps);
+        cout << "next: " << bitset<32>(seed) << '\n';
+        cout << "deci: " << seed << '\n' << '\n';
+        period += 1;
 
-        // sleep_for(nanoseconds(10));
-        // sleep_until(system_clock::now() + milliseconds(500));
+        sleep_until(system_clock::now() + milliseconds(250));
    } 
    cout << "seed: " << bitset<32>(seed) << '\n';
 }
