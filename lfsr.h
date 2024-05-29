@@ -33,3 +33,4 @@ std::bitset<32> step(std::bitset<32> lfsr){
     cb[0] = lastBit;
     return cb;
 }
+
